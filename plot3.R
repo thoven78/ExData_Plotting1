@@ -1,4 +1,7 @@
 plot3 <- function() {
+  ## Extract the data file
+  unzip ("data/exdata-data-household_power_consumption.zip", exdir = "./data/")
+
   ## Read the data
   dataset <- read.csv("data/household_power_consumption.txt", na.string = '?', sep =';')
 
@@ -22,6 +25,9 @@ plot3 <- function() {
 
   ## Save file and close device
   dev.off()
+
+  ## Remove the extracted file
+  file.remove('./data/household_power_consumption.txt')
 }
 
 ## Call the plot function to generate a plot on file load i.e source('plot3.R')
